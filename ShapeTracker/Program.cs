@@ -1,5 +1,6 @@
 using System;
 using ShapeTracker.Models;
+using System.Collections.Generic;
 
 namespace ShapeTracker
 {
@@ -21,6 +22,37 @@ namespace ShapeTracker
       int length3 = int.Parse(stringNumber3);  
       Triangle tri = new Triangle(length1, length2, length3);
       ConfirmOrEditTriangle(tri);
+    }
+
+    static void CheckTriangles()
+    {
+      List<Triangle> allTriangles = Triangle.GetAll();
+      int triangle = 1;
+      Console.WriteLine("----------------------------------");
+      foreach (Triangle tri in allTriangles)
+      {
+        Console.WriteLine($"Triangle {triangle}:");
+        Console.WriteLine($"Side one of the triangle: {tri.Side1}");
+        Console.WriteLine($"Side two of the triangle: {tri.Side2}");
+        Console.WriteLine($"Side three of the triangle: {tri.GetSide3()}");
+        Console.WriteLine("----------------------------------");
+        triangle += 1;
+      }
+      Console.WriteLine("Please enter 'new' to check the type of a new triangle, 'clear' to clear all triangles and return to the beginning of the program, or any key to exit.");
+      string userResponse = Console.ReadLine(); 
+      if (userResponse == "new" || userResponse == "New")
+      {
+        Main();
+      }
+      else if (userResponse == "clear" || userResponse == "Clear")
+      {
+        Triangle.ClearAll();
+        Main();
+      }
+      else
+      {
+        Console.WriteLine("Goodbye!");
+      }
     }
 
     static void ConfirmOrEditTriangle(Triangle tri)
@@ -59,11 +91,15 @@ namespace ShapeTracker
       Console.WriteLine("-----------------------------------------");
       Console.WriteLine("What's next?");
       Console.WriteLine("Would you like to check a new triangle (new)?");
-      Console.WriteLine("Please enter 'new' to check the type of a new triangle. To exit, enter any key.");
+      Console.WriteLine("Please enter 'new' to check the type of a new triangle, 'triangles' to see triangles checked so far, or any key to exit.");
       string userResponse = Console.ReadLine(); 
       if (userResponse == "new" || userResponse == "New")
       {
         Main();
+      }
+      else if (userResponse == "triangles" || userResponse == "Triangles")
+      {
+        CheckTriangles();
       }
       else
       {
