@@ -15,5 +15,11 @@ namespace ShapeTracker.Models
         _side1 = length1;
         Side2 = length2;
       }
+
+      public float CalculateArea()
+      {
+        float area = _side1 * Side2;
+        return area;
+      }
     }
   }
