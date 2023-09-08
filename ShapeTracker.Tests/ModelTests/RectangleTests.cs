@@ -22,5 +22,14 @@ namespace ShapeTracker.Tests
       int result = newRectangle.Side1;
       Assert.AreEqual(length1, result);
     }
+
+    [TestMethod]
+    public void SetSide1_SetsValueOfSide1_Void()
+    {
+      Rectangle newRectangle = new Rectangle(3);
+      int newLength1 = 44;
+      newRectangle.Side1 = newLength1;
+      Assert.AreEqual(newLength1, newRectangle.Side1);
+    }
   }
 }
