@@ -10,7 +10,7 @@ namespace ShapeTracker
     {
       Console.WriteLine("*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*");
       Console.WriteLine("Welcome to the Shape Tracker app!");
-      Console.WriteLine("Type 'triangle' to check the type of a triangle or 'rectangle' to calculate the area of a rectangle.");
+      Console.WriteLine("Type 'triangle' to check the type of a triangle, 'rectangle' to calculate the area of a rectangle, or any key to exit.");
       string userResponse = Console.ReadLine();
       if (userResponse == "triangle" || userResponse == "Triangle")
       {
@@ -27,7 +27,7 @@ namespace ShapeTracker
         Triangle tri = new Triangle(length1, length2, length3);
         ConfirmOrEditTriangle(tri);
       }
-      else
+      else if (userResponse == "rectangle" || userResponse == "Rectangle")
       {
         Console.WriteLine("We'll calculate the area of your rectangle by multiplying the lengths of two sides.");
         Console.WriteLine("Please enter a number:");
@@ -38,6 +38,10 @@ namespace ShapeTracker
         int length2 = int.Parse(stringNumber2);  
         Rectangle rec = new Rectangle(length1, length2);
         CalculateRectangleArea(rec);
+      }
+      else
+      {
+        Console.WriteLine("Goodbye!");
       }
     }
 
@@ -77,7 +81,7 @@ namespace ShapeTracker
       Console.WriteLine("-----------------------------------------");
       Console.WriteLine("What's next?");
       Console.WriteLine("Would you like to check a new triangle (new)?");
-      Console.WriteLine("Please enter 'new' to check the type of a new triangle, 'triangles' to see triangles checked so far, or any key to exit.");
+      Console.WriteLine("Please enter 'new' to return to the beginning of the program, 'triangles' to see triangles checked so far, or any key to exit.");
       string userResponse = Console.ReadLine(); 
       if (userResponse == "new" || userResponse == "New")
       {
@@ -101,7 +105,7 @@ namespace ShapeTracker
       Console.WriteLine("-----------------------------------------");
       Console.WriteLine("What's next?");
       Console.WriteLine("Would you like to calculate the area of a new rectangle (new)?");
-      Console.WriteLine("Please enter 'new' to calculate the area of a new rectangle or any key to exit.");
+      Console.WriteLine("Please enter 'new' to return to the beginning of the program or any key to exit.");
       string userResponse = Console.ReadLine(); 
       if (userResponse == "new" || userResponse == "New")
       {
@@ -127,7 +131,7 @@ namespace ShapeTracker
         Console.WriteLine("----------------------------------");
         triangle += 1;
       }
-      Console.WriteLine("Please enter 'new' to check the type of a new triangle, 'clear' to clear all triangles and return to the beginning of the program, or any key to exit.");
+      Console.WriteLine("Please enter 'new' to return to the beginning of the program, 'clear' to clear all triangles and return to the beginning of the program, or any key to exit.");
       string userResponse = Console.ReadLine(); 
       if (userResponse == "new" || userResponse == "New")
       {
